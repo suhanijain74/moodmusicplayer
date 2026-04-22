@@ -1,0 +1,15 @@
+{
+  "short_name": "MoodSync",
+  "name": "MoodSync Mood Music Player",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0B0B0B",
+  "background_color": "#0B0B0B"
+}

@@ -184,7 +184,7 @@ const DashboardView = ({ user, mood, setMood, setView }) => {
 
   // Logic moved to Java: Fetch filtered songs from the Java API
   useEffect(() => {
-    fetch(`http://localhost:9090/api/songs?mood=${mood}&lang=${filter}`)
+    fetch(`/api/songs?mood=${mood}&lang=${filter}`)
       .then(res => res.json())
       .then(data => setPlaylist(data))
       .catch(err => console.error("Error fetching songs from Java API:", err));

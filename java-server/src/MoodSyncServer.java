@@ -6,10 +6,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class MoodSyncServer {
-    private static final int PORT = 9090;
 
     public static void main(String[] args) throws Exception {
-        HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
+        String portEnv = System.getenv("PORT");
+        int port = (portEnv != null) ? Integer.parseInt(portEnv) : 9090;
+        HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         
         // API Route: Get songs based on mood and language
         server.createContext("/api/songs", new SongApiHandler());
@@ -20,7 +21,7 @@ public class MoodSyncServer {
         server.setExecutor(null);
         System.out.println("=================================================");
         System.out.println("🧠 MoodSync Java Backend logic active!");
-        System.out.println("🔗 Access the UI at: http://localhost:" + PORT);
+        System.out.println("🔗 Server running on port: " + port);
         System.out.println("=================================================");
         server.start();
     }
